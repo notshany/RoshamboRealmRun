@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Timer : MonoBehaviour
+public class StartGameScene : MonoBehaviour
 {
     public float timeLeft = 300;
     public float timeSoFar = 0;
@@ -15,6 +15,8 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         isRunning = true;
+
+        FindObjectOfType<GameManager>().InstantiatePlayer();
     }
 
     private void Update()
@@ -31,13 +33,6 @@ public class Timer : MonoBehaviour
                 isRunning = false;
             }
 
-            //DELETE LATER!!!
-            if (timeLeft <= 297)
-            {
-                GameManager gameManager = FindObjectOfType<GameManager>();
-                gameManager.score = 1;
-                SceneManager.LoadScene(4);
-            }
         }
         UpdateTimerUI();
     }

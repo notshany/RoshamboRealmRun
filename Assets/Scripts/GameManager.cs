@@ -29,16 +29,19 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name == SceneManager.GetSceneByBuildIndex(1).name)
+        if (Input.GetKeyUp(KeyCode.Escape) && !pauseMenuOn)
         {
-            var player = Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-            player.GetComponent<SpriteRenderer>().sprite = playerSprite;
-        }
-
-        if (Input.GetKeyUp(KeyCode.Escape) && !pauseMenuOn)  // pause 
-        { 
             pauseMenuOn = true;
             Instantiate(pauseMenuPrefab);
+        }
+    }
+
+    public void InstantiatePlayer()
+    {
+        if (SceneManager.GetActiveScene().name == SceneManager.GetSceneByBuildIndex(1).name)
+        {
+            var player = Instantiate(playerPrefab, new Vector3(-6, 2, 0), Quaternion.identity);
+            player.GetComponent<SpriteRenderer>().sprite = playerSprite;
         }
     }
 }
