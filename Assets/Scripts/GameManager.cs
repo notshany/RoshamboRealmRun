@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
             player.GetComponent<SpriteRenderer>().sprite = playerSprite;
         }
 
-        if (Input.GetKeyUp(KeyCode.Escape) && !pauseMenuOn) 
+        if (Input.GetKeyUp(KeyCode.Escape) && !pauseMenuOn)  // pause 
         { 
             pauseMenuOn = true;
             Instantiate(pauseMenuPrefab);

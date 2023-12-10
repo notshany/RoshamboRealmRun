@@ -568,7 +568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuPrefab: {fileID: 5281943788862937659, guid: 414e7bbf03241ba4faf300bfb72a1368, type: 3}
   playerSprite: {fileID: 0}
-  playerPrefab: {fileID: 1250939702128161745, guid: 05e9a52721b3d104596099f38b84c109, type: 3}
+  playerPrefab: {fileID: 1924352092225134877, guid: 05e9a52721b3d104596099f38b84c109, type: 3}
   pauseMenuOn: 0
   score: 0
 --- !u!4 &1222956068
