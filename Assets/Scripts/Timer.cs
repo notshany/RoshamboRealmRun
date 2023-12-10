@@ -30,6 +30,14 @@ public class Timer : MonoBehaviour
                 timeLeft = 0;
                 isRunning = false;
             }
+
+            //DELETE LATER!!!
+            if (timeLeft <= 297)
+            {
+                GameManager gameManager = FindObjectOfType<GameManager>();
+                gameManager.score = 1;
+                SceneManager.LoadScene(4);
+            }
         }
         UpdateTimerUI();
     }

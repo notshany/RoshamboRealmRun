@@ -7,13 +7,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager _instance;
+    [SerializeField] private GameObject pauseMenuPrefab;
 
     public Sprite playerSprite;
     public GameObject playerPrefab;
-    [SerializeField] private GameObject pauseMenuPrefab;
     public bool pauseMenuOn = false;
     public int score;
-    public List<PlayerPrefs> HighScoresNumbers = new List<PlayerPrefs>();
 
     void Awake()
     {

@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class NameForHighScore : MonoBehaviour
 {
-    public InputField playerNameInput;
+    [SerializeField] InputField inputField;
     private GameManager gameManager;
-    // Start is called before the first frame update
+    HighScoreDisplay highScoreDisplayScript;
+
     void Start()
     {
+        highScoreDisplayScript = gameObject.GetComponent<HighScoreDisplay>();
         gameManager = FindObjectOfType<GameManager>();
-        playerNameInput.onEndEdit.AddListener(SubmitName);
     }
 
-    private void SubmitName(string name)
+    public void OnEndEdit(string name)
     {
-        // Store the player's name (you can save it to PlayerPrefs or a GameManager)
-        PlayerPrefs.SetInt(name,gameManager.score);
-        PlayerPrefs.SetString(name,name);
+        print (name);
+        highScoreDisplayScript.UpdateHighScores(name, gameManager.score);
     }
 }
