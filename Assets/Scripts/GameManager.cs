@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     public void InstantiatePlayer()
     {
         if (SceneManager.GetActiveScene().name == SceneManager.GetSceneByBuildIndex(1).name)
@@ -36,3 +37,20 @@ public class GameManager : MonoBehaviour
         }
     }
 }
+=======
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == SceneManager.GetSceneByBuildIndex(1).name)
+        {
+            var player = Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            player.GetComponent<SpriteRenderer>().sprite = playerSprite;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Escape) && !pauseMenuOn)  // pause 
+        { 
+            pauseMenuOn = true;
+            Instantiate(pauseMenuPrefab);
+        }
+    }
+}
+>>>>>>> parent of a209bf3 (Added  a camera that follows the player)
