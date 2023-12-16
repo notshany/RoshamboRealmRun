@@ -7,17 +7,20 @@ using UnityEngine.UI;
 
 public class ChooseCharacter : MonoBehaviour, IPointerClickHandler
 {
-    private ChooseCharacterActivator chooseCharacterActivator;
+    private GameManager gameManger;
 
     private void Start()
     {
-        chooseCharacterActivator = FindObjectOfType<ChooseCharacterActivator>();
+        gameManger = FindObjectOfType<GameManager>();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        chooseCharacterActivator.playerSprite = gameObject.GetComponent<Image>().sprite;
+        gameManger.playerSprite = gameObject.GetComponent<Image>().sprite;
+        DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene(1);
+        gameManger.InstantiatePlayer();
+        Destroy(gameObject);
     }
 
 
