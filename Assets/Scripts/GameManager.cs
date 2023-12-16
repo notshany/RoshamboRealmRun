@@ -7,11 +7,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager _instance;
-    [SerializeField] private GameObject pauseMenuPrefab;
-
-    public Sprite playerSprite;
-    public GameObject playerPrefab;
-    public bool pauseMenuOn = false;
     public int score;
 
     void Awake()
@@ -24,21 +19,6 @@ public class GameManager : MonoBehaviour
         {
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
-        }
-    }
-
-    private void Update()
-    {
-        if (SceneManager.GetActiveScene().name == SceneManager.GetSceneByBuildIndex(1).name)
-        {
-            var player = Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-            player.GetComponent<SpriteRenderer>().sprite = playerSprite;
-        }
-
-        if (Input.GetKeyUp(KeyCode.Escape) && !pauseMenuOn) 
-        { 
-            pauseMenuOn = true;
-            Instantiate(pauseMenuPrefab);
         }
     }
 }

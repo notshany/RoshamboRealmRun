@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenuButtons : MonoBehaviour
 {
-    GameManager gameManager;
+    PauseMenuActivator pauseMenuActivator;
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        pauseMenuActivator = FindObjectOfType<PauseMenuActivator>();
         Time.timeScale = 0.0f;
     }
 
@@ -31,7 +31,7 @@ public class PauseMenu : MonoBehaviour
     }
     void OnExitMenu()
     {
-        gameManager.pauseMenuOn = false;
+        pauseMenuActivator.pauseMenuOn = false;
         Time.timeScale = 1f;
         Destroy(gameObject);
     }

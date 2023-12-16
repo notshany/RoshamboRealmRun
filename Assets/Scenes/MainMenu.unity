@@ -547,8 +547,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1222956068}
   - component: {fileID: 1222956067}
+  - component: {fileID: 1222956069}
+  - component: {fileID: 1222956070}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: BetweenScenesManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -566,10 +568,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b54a48074c30e4aaa25b2ca3fb32b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuPrefab: {fileID: 5281943788862937659, guid: 414e7bbf03241ba4faf300bfb72a1368, type: 3}
-  playerSprite: {fileID: 0}
-  playerPrefab: {fileID: 1250939702128161745, guid: 05e9a52721b3d104596099f38b84c109, type: 3}
-  pauseMenuOn: 0
   score: 0
 --- !u!4 &1222956068
 Transform:
@@ -586,6 +584,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1222956069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222956066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772fc8abe3b57ad47b330e90fbb85dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuPrefab: {fileID: 5281943788862937659, guid: 414e7bbf03241ba4faf300bfb72a1368, type: 3}
+  pauseMenuOn: 0
+--- !u!114 &1222956070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222956066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a8278f60ebf5e743b79fd54529fccbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSprite: {fileID: 0}
+  playerPrefab: {fileID: 0}
 --- !u!1 &1249777091
 GameObject:
   m_ObjectHideFlags: 0
