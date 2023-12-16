@@ -27,15 +27,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Escape) && !pauseMenuOn)
-        {
-            pauseMenuOn = true;
-            Instantiate(pauseMenuPrefab);
-        }
-    }
-
     public void InstantiatePlayer()
     {
         if (SceneManager.GetActiveScene().name == SceneManager.GetSceneByBuildIndex(1).name)

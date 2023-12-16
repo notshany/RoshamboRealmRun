@@ -688,6 +688,8 @@ GameObject:
   m_Component:
   - component: {fileID: 823000768}
   - component: {fileID: 823000767}
+  - component: {fileID: 823000770}
+  - component: {fileID: 823000769}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -727,6 +729,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &823000769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823000766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772fc8abe3b57ad47b330e90fbb85dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuPrefab: {fileID: 5281943788862937659, guid: 414e7bbf03241ba4faf300bfb72a1368, type: 3}
+  pauseMenuOn: 0
+--- !u!114 &823000770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823000766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a8278f60ebf5e743b79fd54529fccbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSprite: {fileID: 0}
+  playerPrefab: {fileID: 1924352092225134877, guid: 05e9a52721b3d104596099f38b84c109, type: 3}
 --- !u!1 &937265342
 GameObject:
   m_ObjectHideFlags: 0
