@@ -13,7 +13,7 @@ public class ChooseCharacterActivator : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == SceneManager.GetSceneByBuildIndex(1).name && !startedGame)
         {
-            var player = Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            var player = Instantiate(playerPrefab, new Vector3(-6, 2, 0), Quaternion.identity);
             player.GetComponent<SpriteRenderer>().sprite = playerSprite;
             startedGame = true;
         }
