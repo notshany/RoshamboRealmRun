@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class FollowPlayer : MonoBehaviour
+public class CameraFollowPlayer : MonoBehaviour
 {
     public GameObject tPlayer;
     public Transform tFollowTarget;
