@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 60b54a48074c30e4aaa25b2ca3fb32b7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - playerSprite: {instanceID: 0}
+  - playerPrefab: {fileID: 1250939702128161745, guid: 05e9a52721b3d104596099f38b84c109, type: 3}
+  - pauseMenuPrefab: {fileID: 5281943788862937659, guid: 414e7bbf03241ba4faf300bfb72a1368, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
