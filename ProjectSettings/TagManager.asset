@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - MovingPlatform
+  - Projectile
   layers:
   - Default
   - TransparentFX
