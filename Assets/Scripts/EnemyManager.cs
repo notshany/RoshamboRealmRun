@@ -4,53 +4,45 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public GameObject player;
-    //Make sure to assign the player game object to the player variable in the Unity Inspector.
-    private int enemyType;
+    GameManager gameManager;
+    RPS enemyType;
+
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     void Start()
     {
-        int playerType = player.GetComponent<PlayerManager>().GetPlayerType();
-        if (playerType == 1)
+        RPS playerType = gameManager.currentRPSType;
+        if (playerType == RPS.Rock)
         {
-            enemyType = 2; // Start with paper if player started with rock
+            enemyType = RPS.Paper;
         }
-        else if (playerType == 2)
+        else if (playerType == RPS.Paper)
         {
-            enemyType = 3; // Start with scissors if player started with paper
+            enemyType = RPS.Scissors;
         }
         else
         {
-            enemyType = 1; // Start with rock if player started with scissors
+            enemyType = RPS.Rock;
         }
     }
 
     void Update()
     {
-        int randomNumber = Random.Range(1, 4);
-        if (randomNumber != player.GetComponent<PlayerManager>().GetPlayerType())
+        //if rock become paper enemies if paper become scissors if scissors become rock.
+        if (gameManager.currentRPSType == RPS.Rock)
         {
-            enemyType = randomNumber;
+            enemyType = RPS.Paper;
         }
-        else
+        else if (gameManager.currentRPSType == RPS.Paper)
         {
-            if (enemyType == 1)
-            {
-                enemyType = 2; // Switch to paper if enemy was rock and player is also rock
-            }
-            else if (enemyType == 2)
-            {
-                enemyType = 3; // Switch to scissors if enemy was paper and player is also paper
-            }
-            else
-            {
-                enemyType = 1; // Switch to rock if enemy was scissors and player is also scissors
-            }
+            enemyType= RPS.Scissors;
         }
-    }
-
-    public int GetEnemyType()
-    {
-        return enemyType;
+        else if (gameManager.currentRPSType == RPS.Scissors)
+        {
+            enemyType = RPS.Rock;
+        }
     }
 }

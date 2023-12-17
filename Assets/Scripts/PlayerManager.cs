@@ -5,17 +5,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-
-    //Another option is to move the RPSCharacter class outside of the PlayerManager class,
-    //and using the Unity inspector to set the character type and damage values.
-    public enum RPS
-    {
-        //Different character types.
-        Rock,
-        Paper,
-        Scissors
-    }
-
+    private float groundRadius = 0.1f;
     public RPS characterType;
     public int damage;
     public int health;
@@ -23,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     private Rigidbody2D rb;
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>(); 
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -46,6 +37,7 @@ public class PlayerManager : MonoBehaviour
             characterType = RPS.Scissors;
             damage = 1;
         }
+        gameManager.currentRPSType = characterType;
     }
 
 
@@ -60,7 +52,6 @@ public class PlayerManager : MonoBehaviour
     }
 
     // Determine the damage dealt based on the character types.
-
     private int GetDamage(AIController.RPSCharacter.RPS enemyType)
     {
         int damageTaken = 0;
@@ -74,8 +65,21 @@ public class PlayerManager : MonoBehaviour
 
         return damageTaken;
     }
-    internal int GetPlayerType()
+
+    void OnTriggerEnter2D(Collider2D other)
     {
-        throw new NotImplementedException();
+        if (other.CompareTag("MovingPlatform"))
+        {
+            transform.SetParent(other.transform);  // Set the  parent to the moving platform
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("MovingPlatform"))
+        {
+            // Reset the player's parent to null (no parent)
+            transform.SetParent(null);
+        }
     }
 }

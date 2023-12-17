@@ -4,6 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+public enum RPS
+{
+    //Different character types.
+    Rock,
+    Paper,
+    Scissors
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager _instance;
@@ -11,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject playerPrefab;
     public Sprite playerSprite;
     public int score;
+    public RPS currentRPSType;
 
     void Awake()
     {

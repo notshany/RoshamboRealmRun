@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - MovingPlatform
   - Projectile
+  - ShootableWall
   layers:
   - Default
   - TransparentFX
