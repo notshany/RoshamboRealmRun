@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
     }
 
     void Update()
@@ -35,12 +34,12 @@ public class PlayerMovement : MonoBehaviour
         // we change the position of the projectile origin point
         if (moveDirection < 0)
         {
-            projectileOrigin.localPosition = new Vector3(-0.6f, 0f, 0f);
+            projectileOrigin.localPosition = new Vector3(-0.8f, 0f, 0f);
         }
         // Flip the projectile if moving right
         else if (moveDirection > 0)
         {
-            projectileOrigin.localPosition = new Vector3(0.6f, 0f, 0f);
+            projectileOrigin.localPosition = new Vector3(0.8f, 0f, 0f);
         }
 
         //calculate movement

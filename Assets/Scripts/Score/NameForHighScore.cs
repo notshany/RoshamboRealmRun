@@ -6,18 +6,18 @@ using UnityEngine.UI;
 public class NameForHighScore : MonoBehaviour
 {
     [SerializeField] InputField inputField;
-    private GameManager gameManager;
+    private ScoreManager scoreManager;
     HighScoreDisplay highScoreDisplayScript;
 
     void Start()
     {
         highScoreDisplayScript = gameObject.GetComponent<HighScoreDisplay>();
-        gameManager = FindObjectOfType<GameManager>();
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     public void OnEndEdit(string name)
     {
         print (name);
-        highScoreDisplayScript.UpdateHighScores(name, gameManager.score);
+        highScoreDisplayScript.UpdateHighScores(name, scoreManager.currentScore);
     }
 }

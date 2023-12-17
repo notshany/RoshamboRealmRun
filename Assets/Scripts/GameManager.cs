@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject playerPrefab;
     public Sprite playerSprite;
-    public int score;
     public RPS currentRPSType;
 
     void Awake()

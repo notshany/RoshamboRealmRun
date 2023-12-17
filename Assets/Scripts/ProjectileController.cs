@@ -27,6 +27,6 @@ public class ProjectileController : MonoBehaviour
         }
 
         // Destroy the projectile when it hits any collider
-        // Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

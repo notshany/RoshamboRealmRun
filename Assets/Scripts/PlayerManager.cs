@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    private float groundRadius = 0.1f;
     public RPS characterType;
     public int damage;
     public int health;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
+    private GameManager gameManager;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>(); 
@@ -66,20 +66,4 @@ public class PlayerManager : MonoBehaviour
         return damageTaken;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("MovingPlatform"))
-        {
-            transform.SetParent(other.transform);  // Set the  parent to the moving platform
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("MovingPlatform"))
-        {
-            // Reset the player's parent to null (no parent)
-            transform.SetParent(null);
-        }
-    }
 }

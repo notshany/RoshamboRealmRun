@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7153886679090011213}
   - component: {fileID: 366969373261817660}
   - component: {fileID: 4476273277384651822}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ MonoBehaviour:
   shoes: {fileID: 8507222680918591391}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   projectileOrigin: {fileID: 6487676707969040670}
 --- !u!50 &7153886679090011213
 Rigidbody2D:
