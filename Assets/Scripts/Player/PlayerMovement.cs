@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     private int jumpCounter = 0;
     [SerializeField] private Transform projectileOrigin;
+    public int direction;
 
     void Start()
     {
@@ -35,11 +36,14 @@ public class PlayerMovement : MonoBehaviour
         if (moveDirection < 0)
         {
             projectileOrigin.localPosition = new Vector3(-0.8f, 0f, 0f);
+            direction = -1;
         }
         // Flip the projectile if moving right
         else if (moveDirection > 0)
         {
             projectileOrigin.localPosition = new Vector3(0.8f, 0f, 0f);
+            direction = 1;
+
         }
 
         //calculate movement
