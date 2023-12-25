@@ -1,5 +1,57 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1071561786000426412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1152745604938624026}
+  - component: {fileID: 5312469294708771046}
+  m_Layer: 0
+  m_Name: PaperChar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1152745604938624026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071561786000426412}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7311732155991515966}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5312469294708771046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071561786000426412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1f1c8b30951464997bb20d70acc7ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterType: Paper
+  maxHP: 100
+  currentHP: 100
+  damage: 10
+  attackType: PaperAttack
+  characterSprite: {fileID: 1060048640, guid: 295e6bff44c00f440b44d1ceff1acdf6, type: 3}
+  respawnTime: 10
+  isActive: 0
 --- !u!1 &1924352092225134877
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +61,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7311732155991515966}
-  - component: {fileID: -7677012424215225066}
+  - component: {fileID: 8142834144455518717}
   - component: {fileID: 1243513953027267751}
   - component: {fileID: 7153886679090011213}
   - component: {fileID: 366969373261817660}
@@ -36,9 +88,12 @@ Transform:
   m_Children:
   - {fileID: 6487676707969040670}
   - {fileID: 8507222680918591391}
+  - {fileID: 4999689861821087221}
+  - {fileID: 1152745604938624026}
+  - {fileID: 8968407253030617033}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7677012424215225066
+--- !u!114 &8142834144455518717
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,12 +102,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1924352092225134877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a44e75ed911174f9a03d17c5c9bd34, type: 3}
+  m_Script: {fileID: 11500000, guid: fe1265acc547ea04bbbcb08b9de2b19c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterType: 0
-  damage: 10
-  health: 100
+  characters:
+  - {fileID: 702747826169629998}
+  - {fileID: 5312469294708771046}
+  - {fileID: 5426277531742653264}
+  currentCharacter: {fileID: 0}
+  playerSpriteRenderer: {fileID: 0}
 --- !u!114 &1243513953027267751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +130,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   projectileOrigin: {fileID: 6487676707969040670}
+  direction: 0
 --- !u!50 &7153886679090011213
 Rigidbody2D:
   serializedVersion: 4
@@ -242,6 +301,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 6487676707969040670}
   projectilePrefab: {fileID: 5178292068732964777, guid: 96841fef1210816498468f72d50eb8db, type: 3}
+  player: {fileID: 8142834144455518717}
+  playerMovement: {fileID: 1243513953027267751}
+--- !u!1 &6051705769571485859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8968407253030617033}
+  - component: {fileID: 5426277531742653264}
+  m_Layer: 0
+  m_Name: ScissorsChar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8968407253030617033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6051705769571485859}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7311732155991515966}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5426277531742653264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6051705769571485859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1f1c8b30951464997bb20d70acc7ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterType: Scissors
+  maxHP: 100
+  currentHP: 100
+  damage: 10
+  attackType: ScissorsAttack
+  characterSprite: {fileID: 249821589, guid: 295e6bff44c00f440b44d1ceff1acdf6, type: 3}
+  respawnTime: 10
+  isActive: 0
 --- !u!1 &6980343833796979867
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,3 +386,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7311732155991515966}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9109948949263464045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4999689861821087221}
+  - component: {fileID: 702747826169629998}
+  m_Layer: 0
+  m_Name: RockChar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4999689861821087221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9109948949263464045}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7311732155991515966}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &702747826169629998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9109948949263464045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1f1c8b30951464997bb20d70acc7ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterType: Rock
+  maxHP: 100
+  currentHP: 100
+  damage: 10
+  attackType: RockAttack
+  characterSprite: {fileID: 213949311, guid: 295e6bff44c00f440b44d1ceff1acdf6, type: 3}
+  respawnTime: 10
+  isActive: 0

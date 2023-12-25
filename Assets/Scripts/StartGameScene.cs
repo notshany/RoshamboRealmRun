@@ -37,11 +37,6 @@ public class StartGameScene : MonoBehaviour
                 isRunning = false;
             }
 
-            if (timeLeft >= 5)
-            {
-                SceneManager.LoadScene(4);
-                isRunning = false;
-            }
         }
         UpdateTimerUI();
     }
