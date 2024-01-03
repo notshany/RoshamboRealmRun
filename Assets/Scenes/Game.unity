@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 157643680}
   - component: {fileID: 157643679}
   - component: {fileID: 157643678}
+  - component: {fileID: 157643681}
+  - component: {fileID: 157643682}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -253,6 +255,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &157643681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157643677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b65e5e5287f06243808ab053f7f4106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: Rock
+  maxHP: 100
+  currentHP: 100
+  damageToTake: 0
+  playerController: {fileID: 0}
+--- !u!114 &157643682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157643677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cdad13b8897fe345a6a19f7434ee512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  range: 2
 --- !u!4 &270292146 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1435387453983570381, guid: 9e96f643613d8e0439d04e80cea687ba, type: 3}
@@ -347,7 +380,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: Score
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9844,6 +9877,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 702747826169629998, guid: 05e9a52721b3d104596099f38b84c109, type: 3}
+      propertyPath: damage
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 1924352092225134877, guid: 05e9a52721b3d104596099f38b84c109, type: 3}
       propertyPath: m_Name
       value: Player
@@ -9851,6 +9888,14 @@ PrefabInstance:
     - target: {fileID: 2759000252898731028, guid: 05e9a52721b3d104596099f38b84c109, type: 3}
       propertyPath: shotForce
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469294708771046, guid: 05e9a52721b3d104596099f38b84c109, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426277531742653264, guid: 05e9a52721b3d104596099f38b84c109, type: 3}
+      propertyPath: damage
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7311732155991515966, guid: 05e9a52721b3d104596099f38b84c109, type: 3}
       propertyPath: m_LocalPosition.x

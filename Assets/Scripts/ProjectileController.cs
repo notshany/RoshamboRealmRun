@@ -8,8 +8,7 @@ public class ProjectileController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Enemy hit!");
-            // Add whatever logic makes the enemy take damage
+            //Debug.Log("Enemy hit!");
         }
 
 

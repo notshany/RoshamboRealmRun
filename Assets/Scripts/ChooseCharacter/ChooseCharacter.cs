@@ -20,7 +20,7 @@ public class ChooseCharacter : MonoBehaviour, IPointerClickHandler
         DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene(1);
         gameManger.InstantiatePlayer();
-        Destroy(gameObject);
+        //Destroy(gameObject); // this is the thing that made the sprite lag before the start of the game scene lol
     }
 
 

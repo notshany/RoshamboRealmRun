@@ -8,7 +8,7 @@ public class PlatformController : MonoBehaviour
     public float UpBound = 8.0f;
     public float DownBound = -4.0f;
     public bool isMovingUp = true;
-    private Transform platformTransform; // Fixed the variable name
+    private Transform platformTransform;
 
     void Start()
     {
