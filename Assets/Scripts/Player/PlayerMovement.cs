@@ -15,10 +15,14 @@ public class PlayerMovement : MonoBehaviour
     private int jumpCounter = 0;
     [SerializeField] private Transform projectileOrigin;
     public int direction;
+    private Animator animator;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
+
     }
 
     void Update()
@@ -46,6 +50,9 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
+        // Set the "isRunning" parameter based on movement
+        animator.SetBool("isWalking", Mathf.Abs(moveDirection) > 0);;
+        animator.SetBool("isIdle", Mathf.Abs(moveDirection) == 0);
         //calculate movement
         Vector2 movement = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
         //apply movement to the rb

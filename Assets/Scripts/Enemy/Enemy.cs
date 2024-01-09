@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     public int damageToTake;
     public PlayerController playerController;
 
+    [SerializeField] private FloatingHealthBar healthBar;
+
     private void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
@@ -55,6 +57,8 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("no damage dealth");
         }
+
+        healthBar.UpdateHealthBar(currentHP, maxHP);
     }
 
     public void DeathCheck()
@@ -64,4 +68,5 @@ public class Enemy : MonoBehaviour
             gameObject.SetActive(false); // hides the object
         }
     }
+
 }
