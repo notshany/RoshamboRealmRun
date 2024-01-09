@@ -11,7 +11,7 @@ public class ShootablePaperWall : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) // change to collision if projectiles are collidors and not triggers
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if ((gameManager.currentRPSType == RPS.Scissors) && (collision.gameObject.CompareTag("Projectile")))
         {
