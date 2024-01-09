@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        DeathCheck();
+
         for (int i = 0; i < characters.Length; i++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i) && i < characters.Length)
@@ -32,6 +34,19 @@ public class PlayerController : MonoBehaviour
                 SwitchCharacter(characters[i]);
             }
         }
+    }
+
+    public void DeathCheck()
+    {
+        if (currentCharacter.currentHP <= 0 && !currentCharacter.isRespawning) // if the characters hp is 0 or less and its not currently waiting to respawn, wait the respawnTime and call RespawnCharacter
+        {
+            currentCharacter.isRespawning = true;
+            Invoke("RespawnCharacter", currentCharacter.respawnTime);
+        }
+
+        int charIndex = System.Array.IndexOf(characters, currentCharacter); // Get the index of the current character
+        SwitchCharacterByIndex(charIndex);  // Call SwitchCharacter with the current character index
+
     }
 
     public void SwitchCharacter(Character newCharacter)
@@ -46,6 +61,11 @@ public class PlayerController : MonoBehaviour
         playerSpriteRenderer.sprite = currentCharacter.characterSprite;
 
         currentCharacter.isActive = true;
+    }
+
+    public void SwitchCharacterByIndex(int index)
+    {
+        SwitchCharacter(characters[index]);
     }
 }
 

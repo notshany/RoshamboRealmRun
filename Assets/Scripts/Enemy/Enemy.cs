@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 [System.Serializable]
 public class Enemy : MonoBehaviour
@@ -10,12 +12,15 @@ public class Enemy : MonoBehaviour
     public int currentHP;
     public int damageToTake;
     public PlayerController playerController;
+    private ScoreManager scoreManager;
+
 
     [SerializeField] private FloatingHealthBar healthBar;
 
     private void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
+        scoreManager = FindAnyObjectByType<ScoreManager>();
         currentHP = maxHP; // starts the hp as the max hp at the start of the game
     }
 
@@ -66,6 +71,7 @@ public class Enemy : MonoBehaviour
         if (currentHP <= 0)
         {
             gameObject.SetActive(false); // hides the object
+            scoreManager.AddScore(10); // change score
         }
     }
 

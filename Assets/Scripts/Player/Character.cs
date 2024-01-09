@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
     public int damage;
     public string attackType;
     public Sprite characterSprite;
-    private bool isRespawning = false;
+    public bool isRespawning = false;
     public float respawnTime = 10f;
     public bool isActive = false;
 
@@ -24,15 +24,6 @@ public class Character : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHP -= damage;
-    }
-
-    public void DeathCheck()
-    {
-        if (currentHP <= 0 && !isRespawning) // if the characters hp is 0 or less and its not currently waiting to respawn, wait the respawnTime and call RespawnCharacter
-        {
-            isRespawning = true;
-            Invoke("RespawnCharacter", respawnTime);
-        }
     }
 
     private void RespawnCharacter() // sets hp back to max hp

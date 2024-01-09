@@ -6,13 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class Traps : MonoBehaviour
 {
-    async private void OnCollisionEnter2D(Collision2D collision)
+    private PlayerController playerController;
+
+    private void Start()
+    {
+        playerController = FindObjectOfType<PlayerController>();
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
-            await Task.Delay(500); //wait for 0.5 seconds
-            SceneManager.LoadScene(3);
+            playerController.currentCharacter.TakeDamage(30);
         }
     }
 }
