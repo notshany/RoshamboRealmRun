@@ -5,21 +5,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public enum RPS
-{
-    //Different character types.
-    Rock,
-    Paper,
-    Scissors
-}
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager _instance;
+    public int selectedCharIndex;
 
     [SerializeField] GameObject playerPrefab;
-    public Sprite playerSprite;
-    public RPS currentRPSType;
 
     void Awake()
     {
@@ -32,14 +23,31 @@ public class GameManager : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    public void InstantiatePlayer()
+    public void InstantiatePlayer(int charIndex)
     {
-        if (SceneManager.GetActiveScene().name == SceneManager.GetSceneByBuildIndex(1).name)
+        Debug.Log("Instantiating Player with CharIndex: " + charIndex);
+        var player = Instantiate(playerPrefab, new Vector3(-6, 2, 0), Quaternion.identity);
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        playerController.SwitchCharacter(playerController.characters[charIndex]);
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Game")
         {
-            var player = Instantiate(playerPrefab, new Vector3(-6, 2, 0), Quaternion.identity);
-            player.GetComponent<SpriteRenderer>().sprite = playerSprite;
+            InstantiatePlayer(selectedCharIndex);
         }
     }
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+
+
+
 }

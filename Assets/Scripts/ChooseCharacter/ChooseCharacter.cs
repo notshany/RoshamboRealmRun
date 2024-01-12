@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class ChooseCharacter : MonoBehaviour, IPointerClickHandler
 {
-    private GameManager gameManger;
+    [SerializeField] private GameManager gameManger;
+    public int charIndex;
 
     private void Start()
     {
@@ -16,12 +17,8 @@ public class ChooseCharacter : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        gameManger.playerSprite = gameObject.GetComponent<Image>().sprite;
-        DontDestroyOnLoad(gameObject);
-        SceneManager.LoadScene(1);
-        gameManger.InstantiatePlayer();
-        //Destroy(gameObject); // this is the thing that made the sprite lag before the start of the game scene lol
+        gameManger.selectedCharIndex = charIndex;
+        Debug.Log("Button Clicked - CharIndex: " + charIndex);
+        SceneManager.LoadScene("Game");
     }
-
-
 }

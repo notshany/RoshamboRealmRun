@@ -19,8 +19,6 @@ public class StartGameScene : MonoBehaviour
     private void Start()
     {
         isRunning = true;
-
-        FindObjectOfType<GameManager>().InstantiatePlayer();
     }
 
     private void Update()

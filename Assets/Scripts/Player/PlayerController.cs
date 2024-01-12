@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
         if (characters.Length > 0)
         {
-            SwitchCharacter(characters[0]);
+            //SwitchCharacter(characters[0]);
         }
         else
         {
@@ -44,13 +44,12 @@ public class PlayerController : MonoBehaviour
             Invoke("RespawnCharacter", currentCharacter.respawnTime);
         }
 
-        int charIndex = System.Array.IndexOf(characters, currentCharacter); // Get the index of the current character
-        SwitchCharacterByIndex(charIndex);  // Call SwitchCharacter with the current character index
-
     }
 
     public void SwitchCharacter(Character newCharacter)
     {
+        Debug.Log("Switching character to: " + newCharacter.name);
+
         if (currentCharacter != null)
         {
             currentCharacter.isActive = false;
@@ -63,10 +62,7 @@ public class PlayerController : MonoBehaviour
         currentCharacter.isActive = true;
     }
 
-    public void SwitchCharacterByIndex(int index)
-    {
-        SwitchCharacter(characters[index]);
-    }
+
 }
 
 
