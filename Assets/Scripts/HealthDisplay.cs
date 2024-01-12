@@ -28,8 +28,6 @@ public class HealthDisplay : MonoBehaviour
         float currentHp = playerController.currentCharacter.currentHP;
 
         healthBar.value = currentHp / playerController.currentCharacter.maxHP;
-        Debug.Log(currentHp);
-
     }
 
 }
