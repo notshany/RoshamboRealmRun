@@ -3,16 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
+using static ShootableWall;
 
 [System.Serializable]
 public class Enemy : MonoBehaviour
 {
-    public string enemyType;
+    public enum EnemyType
+    {
+        Rock,
+        Paper,
+        Scissors
+    }
+
+    public EnemyType enemyType;
     public int maxHP;
     public int currentHP;
     public int damageToTake;
     public PlayerController playerController;
     private ScoreManager scoreManager;
+
 
 
     [SerializeField] private FloatingHealthBar healthBar;
@@ -43,17 +52,16 @@ public class Enemy : MonoBehaviour
     public void TakeDamage()
     {
 
-        if (enemyType == "Rock" && playerController.currentCharacter.characterType == "Paper")
-        {
+        if (enemyType.ToString() == "Rock" && playerController.currentCharacter.characterType == "Paper")        {
             Debug.Log("Rock got hit by Paper");
             currentHP -= damageToTake;
         }
-        else if (enemyType == "Paper" && playerController.currentCharacter.characterType == "Scissors")
+        else if (enemyType.ToString() == "Paper" && playerController.currentCharacter.characterType == "Scissors")
         {
             Debug.Log("Paper got hit by Scissors");
             currentHP -= damageToTake;
         }
-        else if (enemyType == "Scissors" && playerController.currentCharacter.characterType == "Rock")
+        else if (enemyType.ToString() == "Scissors" && playerController.currentCharacter.characterType == "Rock")
         {
             Debug.Log("Scissors got hit by Rock");
             currentHP -= damageToTake;

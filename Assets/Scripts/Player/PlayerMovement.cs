@@ -15,13 +15,18 @@ public class PlayerMovement : MonoBehaviour
     private int jumpCounter = 0;
     [SerializeField] private Transform projectileOrigin;
     public int direction;
-    private Animator animator;
+    private Animator rightAnimator;
+    private Animator leftAnimator;
+    [SerializeField] private GameObject rightHand;
+    [SerializeField] private GameObject leftHand;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponentInChildren<Animator>();
+        rightAnimator = rightHand.GetComponent<Animator>();
+        leftAnimator = leftHand.GetComponent<Animator>();
+        leftHand.gameObject.SetActive(false);
 
     }
 
@@ -41,18 +46,25 @@ public class PlayerMovement : MonoBehaviour
         {
             projectileOrigin.localPosition = new Vector3(-0.8f, 0f, 0f);
             direction = -1;
+            rightHand.gameObject.SetActive(false);
+            leftHand.gameObject.SetActive(true);
+
         }
         // Flip the projectile if moving right
         else if (moveDirection > 0)
         {
             projectileOrigin.localPosition = new Vector3(0.8f, 0f, 0f);
             direction = 1;
+            rightHand.gameObject.SetActive(true);
+            leftHand.gameObject.SetActive(false);
 
         }
 
         // Set the "isRunning" parameter based on movement
-        animator.SetBool("isWalking", Mathf.Abs(moveDirection) > 0);;
-        animator.SetBool("isIdle", Mathf.Abs(moveDirection) == 0);
+        rightAnimator.SetBool("isWalking", Mathf.Abs(moveDirection) > 0);;
+        rightAnimator.SetBool("isIdle", Mathf.Abs(moveDirection) == 0);
+        leftAnimator.SetBool("isWalking", moveDirection < 0); ;
+        leftAnimator.SetBool("isIdle", Mathf.Abs(moveDirection) == 0);
         //calculate movement
         Vector2 movement = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
         //apply movement to the rb

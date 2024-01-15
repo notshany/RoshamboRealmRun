@@ -14,6 +14,9 @@ public class Character : MonoBehaviour
     public bool isRespawning = false;
     public float respawnTime = 10f;
     public bool isActive = false;
+    public bool isAlive = true;
+    public float deathTime;
+
 
 
     private void Start()
@@ -21,16 +24,24 @@ public class Character : MonoBehaviour
         currentHP = maxHP; // starts the hp as the max hp at the start of the game
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void TakeDamage(int damage)
     {
         currentHP -= damage;
     }
 
-    private void RespawnCharacter() // sets hp back to max hp
+    public void RespawnCharacter() // sets hp back to max hp
     {
         currentHP = maxHP;
         isRespawning = false;
+        isAlive = true;
     }
+
+
 
 
 }

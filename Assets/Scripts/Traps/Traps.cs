@@ -8,6 +8,7 @@ public class Traps : MonoBehaviour
 {
     private PlayerController playerController;
 
+
     private void Start()
     {
         playerController = FindObjectOfType<PlayerController>();

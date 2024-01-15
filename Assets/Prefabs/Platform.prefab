@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 319432803, guid: a6915b53cc9f50e42aaad42a4d6c6b1f, type: 3}
+  m_Sprite: {fileID: -1627375954, guid: a6915b53cc9f50e42aaad42a4d6c6b1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -112,7 +112,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 256861675845888954}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: b345879f479da884ba58044df2cf6135, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -139,14 +139,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 0.65}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 0.65}
   m_EdgeRadius: 0
 --- !u!61 &2430281641822649473
 BoxCollider2D:
@@ -157,7 +157,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 256861675845888954}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: b345879f479da884ba58044df2cf6135, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -184,12 +184,12 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 0.65}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 0.65}
   m_EdgeRadius: 0

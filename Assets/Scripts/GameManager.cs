@@ -47,6 +47,13 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    public void ResetGame()
+    {
+        ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
+        scoreManager.ResetScore();
+
+    }
+
 
 
 

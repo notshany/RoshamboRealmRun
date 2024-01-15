@@ -27,13 +27,14 @@ public class GameOverManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        // Load the main menu scene
+        scoreManager.ResetScore();
         SceneManager.LoadScene("MainMenu");
     }
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("game");
+        scoreManager.ResetScore();
+        SceneManager.LoadScene("Game");
     }
 
     public void SaveScore()
@@ -60,7 +61,7 @@ public class GameOverManager : MonoBehaviour
 
         // Save the leaderboard data
         SaveLeaderboard(leaderboard);
-
+        scoreManager.ResetScore();
         // Load the leaderboard scene
         SceneManager.LoadScene("leaderboard");
     }

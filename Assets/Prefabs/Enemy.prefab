@@ -144,6 +144,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5433170054438611534}
   - {fileID: 8921694702225245793}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -256,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b65e5e5287f06243808ab053f7f4106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: Paper
+  enemyType: 0
   maxHP: 100
   currentHP: 100
   damageToTake: 0
@@ -276,6 +277,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   range: 2
+  followRange: 8
+  player: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!1 &2330661278251731369
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +457,37 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &4094162124231125839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5433170054438611534}
+  m_Layer: 0
+  m_Name: Shoes
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5433170054438611534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094162124231125839}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2516654506971777126}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7696142978668177024
 GameObject:
   m_ObjectHideFlags: 0

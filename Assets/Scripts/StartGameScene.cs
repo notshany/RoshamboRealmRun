@@ -12,10 +12,6 @@ public class StartGameScene : MonoBehaviour
     public bool isRunning = false;
     public TextMeshProUGUI timerText;
 
-    public float playerScissorsRespawnTimer;
-    public float playerRockRespawnTimer;
-    public float playerPaperRespawnTimer;
-
     private void Start()
     {
         isRunning = true;

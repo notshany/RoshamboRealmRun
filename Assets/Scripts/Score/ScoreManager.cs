@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager _instance;
     public int currentScore = 0;
    
-    void Awake()
+    void Start()
     {
         if (_instance != null && _instance != this)
         {
@@ -25,5 +25,10 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(int score)
     {
         currentScore += score;
+    }
+
+    public void ResetScore()
+    {
+        currentScore = 0;
     }
 }
