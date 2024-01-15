@@ -5,7 +5,7 @@ public class EnemyMovement : MonoBehaviour
 {
     public float speed = 2f;
     public float range = 5f;
-    public float followRange = 8f;
+    public float followRangeX = 8f; 
     public Transform player;
     public PlayerController playerController;
 
@@ -22,9 +22,9 @@ public class EnemyMovement : MonoBehaviour
     {
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        if (distanceToPlayer < followRange)
+        if (distanceToPlayer < followRangeX && Mathf.Abs(player.position.y - transform.position.y) < range)
         {
-            // Enemy is within follow range, move towards the player
+            // Enemy is within x-axis follow range, move towards the player
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
             isFollowingPlayer = true;
         }
@@ -39,10 +39,9 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            // Enemy is outside follow range, move back and forth
+            // enemy is outside playes range - pingpong
             float horizontalMovement = Mathf.PingPong(Time.time * speed, range * 2) - range;
             transform.position = new Vector2(originalPosition.x + horizontalMovement, transform.position.y);
         }
     }
-
 }

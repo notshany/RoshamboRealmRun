@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterAttack : MonoBehaviour
 {
-    public Transform shootPoint; 
+    public Transform shootPoint;
     public GameObject projectilePrefab;
     [SerializeField] private PlayerController player;
     [SerializeField] private PlayerMovement playerMovement;
@@ -22,19 +22,19 @@ public class CharacterAttack : MonoBehaviour
     {
         GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, transform.rotation);
 
-        Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
+        ProjectileController projectileController = projectile.GetComponent<ProjectileController>();
 
-        if (projectileRb != null)
+        if (projectileController != null)
         {
-            
-            Vector2 force = new Vector2(playerMovement.direction*shotForce, 0f); // Set the force vector based on your desired direction and strength
+            projectileController.SetShootingCharacter(player);
 
-            projectileRb.AddForce(force, ForceMode2D.Impulse);
-        }
-        else
-        {
-            Debug.LogError("Projectile does not have a Rigidbody2D component!");
+            Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
+
+            if (projectileRb != null)
+            {
+                Vector2 force = new Vector2(playerMovement.direction * shotForce, 0f);
+                projectileRb.AddForce(force, ForceMode2D.Impulse);
+            }
         }
     }
-
 }
