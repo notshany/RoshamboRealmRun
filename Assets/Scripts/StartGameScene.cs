@@ -37,6 +37,6 @@ public class StartGameScene : MonoBehaviour
 
     private void UpdateTimerUI()
     {
-       timerText.text = "Time left: " + Mathf.RoundToInt(timeLeft).ToString();
+       timerText.text = Mathf.RoundToInt(timeLeft).ToString();
     }
 }
