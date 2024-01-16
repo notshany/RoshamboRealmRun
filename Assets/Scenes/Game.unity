@@ -1761,6 +1761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2759000252898731028, guid: 05e9a52721b3d104596099f38b84c109, type: 3}
+      propertyPath: shotForce
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4476273277384651822, guid: 05e9a52721b3d104596099f38b84c109, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -19950,7 +19954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f03cb62fb3bb1c9458c97f32d5c069ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1905644366}
+  scoreText: {fileID: 946324265}
   scoreManager: {fileID: 0}
 --- !u!114 &946324265
 MonoBehaviour:
