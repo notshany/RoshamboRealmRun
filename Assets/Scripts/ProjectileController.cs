@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour
 {
     private PlayerController shootingPlayer;
+    [SerializeField] Sprite[] projectileSprites;
 
     public void SetShootingCharacter(PlayerController player)
     {
@@ -17,13 +18,13 @@ public class ProjectileController : MonoBehaviour
             switch (shootingPlayer.currentCharacter.characterType)
             {
                 case "Rock":
-                    projectileSpriteRenderer.color = Color.red;
+                    projectileSpriteRenderer.sprite = projectileSprites[0];
                     break;
                 case "Paper":
-                    projectileSpriteRenderer.color = Color.green;
+                    projectileSpriteRenderer.sprite = projectileSprites[1];
                     break;
                 case "Scissors":
-                    projectileSpriteRenderer.color = Color.blue;
+                    projectileSpriteRenderer.sprite = projectileSprites[2];
                     break;
             }
         }

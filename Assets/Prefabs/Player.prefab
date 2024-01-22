@@ -116,6 +116,7 @@ MonoBehaviour:
   - {fileID: 5426277531742653264}
   currentCharacter: {fileID: 702747826169629998}
   playerSpriteRenderer: {fileID: 4476273277384651822}
+  gameManager: {fileID: 0}
   deadCharacters: []
 --- !u!114 &1243513953027267751
 MonoBehaviour:
@@ -130,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  jumpForce: 6
+  jumpForce: 6.5
   shoes: {fileID: 8507222680918591391}
   groundLayer:
     serializedVersion: 2
@@ -198,7 +199,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.022833109}
+  m_Offset: {x: 0, y: 0.15}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -209,7 +210,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.9543338}
+  m_Size: {x: 1, y: 1.25}
   m_EdgeRadius: 0
 --- !u!212 &4476273277384651822
 SpriteRenderer:
@@ -289,7 +290,7 @@ Transform:
   m_GameObject: {fileID: 2030177395584103211}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -311,7 +312,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5178292068732964777, guid: 96841fef1210816498468f72d50eb8db, type: 3}
   player: {fileID: 8142834144455518717}
   playerMovement: {fileID: 1243513953027267751}
-  shotForce: 10
+  shotForce: 15
+  torqueForce: 100
 --- !u!1 &6051705769571485859
 GameObject:
   m_ObjectHideFlags: 0

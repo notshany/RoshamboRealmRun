@@ -8,6 +8,7 @@ TagManager:
   - MovingPlatform
   - Projectile
   - ShootableWall
+  - Ground
   layers:
   - Default
   - TransparentFX

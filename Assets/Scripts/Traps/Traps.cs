@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class Traps : MonoBehaviour
 {
     private PlayerController playerController;
+    [SerializeField] bool isDestroyable;
+    [SerializeField] int damageToDeal = 10;
 
 
     private void Start()
@@ -17,7 +19,20 @@ public class Traps : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerController.currentCharacter.TakeDamage(30);
+            playerController.currentCharacter.TakeDamage(damageToDeal);
+
+            if (isDestroyable)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            if (isDestroyable)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }
+

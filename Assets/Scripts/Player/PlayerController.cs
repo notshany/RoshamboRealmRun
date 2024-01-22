@@ -8,12 +8,13 @@ public class PlayerController : MonoBehaviour
     public Character[] characters; // array of rock, paper, and scissors characters
     public Character currentCharacter; // a variable to hold the current active char
     [SerializeField] private SpriteRenderer playerSpriteRenderer;
-
+    [SerializeField] GameManager gameManager;
     public List<Character> deadCharacters = new List<Character>(); // list to keep dead characters
 
     private void Start()
     {
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
@@ -84,8 +85,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // If no alive character is found, return -1
-        SceneManager.LoadScene("LoseScreen");
+        gameManager.isGameWon = false;
+        SceneManager.LoadScene("WinScreen");
         return -1;
     }
 
@@ -124,7 +125,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            currentCharacter.TakeDamage(20);
+            currentCharacter.TakeDamage(30);
         }
     }
 }

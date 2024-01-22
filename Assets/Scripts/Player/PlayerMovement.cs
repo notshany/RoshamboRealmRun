@@ -44,23 +44,23 @@ public class PlayerMovement : MonoBehaviour
         // we change the position of the projectile origin point
         if (moveDirection < 0)
         {
-            projectileOrigin.localPosition = new Vector3(-0.8f, 0f, 0f);
+            projectileOrigin.localPosition = new Vector3(-0.8f, 0.5f, 0f);
             direction = -1;
             rightHand.gameObject.SetActive(false);
             leftHand.gameObject.SetActive(true);
 
         }
-        // Flip the projectile if moving right
+
         else if (moveDirection > 0)
         {
-            projectileOrigin.localPosition = new Vector3(0.8f, 0f, 0f);
+            projectileOrigin.localPosition = new Vector3(0.8f, 0.5f, 0f);
             direction = 1;
             rightHand.gameObject.SetActive(true);
             leftHand.gameObject.SetActive(false);
 
         }
 
-        // Set the "isRunning" parameter based on movement
+
         rightAnimator.SetBool("isWalking", Mathf.Abs(moveDirection) > 0);;
         rightAnimator.SetBool("isIdle", Mathf.Abs(moveDirection) == 0);
         leftAnimator.SetBool("isWalking", moveDirection < 0); ;

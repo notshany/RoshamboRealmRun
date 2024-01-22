@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,7 +115,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 100
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -126,6 +126,27 @@ TextureImporter:
       bones: []
       spriteID: 077e90591eec2c34ba9151b3394fb786
       internalID: 45738285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrapSprites_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 99
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71675377606762440a15932e3186e9ff
+      internalID: -1586970810
       vertices: []
       indices: 
       edges: []
@@ -142,6 +163,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       TrapSprites_0: 45738285
+      TrapSprites_1: -1586970810
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

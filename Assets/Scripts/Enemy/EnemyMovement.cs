@@ -1,23 +1,22 @@
-using System.Collections;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
     public float speed = 2f;
     public float range = 5f;
-    public float followRangeX = 8f; 
+    public float followRangeX = 8f;
     public Transform player;
-    public PlayerController playerController;
-    public SpriteRenderer spriteRenderer;
     private Vector2 originalPosition;
     private bool isFollowingPlayer = false;
-
+    private bool isMovingRight = true;
+    [SerializeField] SpriteRenderer spriteRenderer;
     private void Start()
     {
-        player = FindObjectOfType<PlayerController>().transform;
-        spriteRenderer = GetComponent<SpriteRenderer>();
         originalPosition = transform.position;
+        player = FindObjectOfType<PlayerController>().transform;
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
+
 
     private void Update()
     {
@@ -25,42 +24,63 @@ public class EnemyMovement : MonoBehaviour
 
         if (distanceToPlayer < followRangeX && Mathf.Abs(player.position.y - transform.position.y) < range)
         {
-            // Enemy is within x-axis follow range, move towards the player
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-            isFollowingPlayer = true;
+            if (!isFollowingPlayer)
+            {
+                isFollowingPlayer = true;
+                FlipSprite();
+            }
+
+            FollowPlayer();
         }
-        else if (isFollowingPlayer)
+        else
         {
-            // Enemy was following the player but is now out of follow range, smoothly transition back
-            transform.position = Vector2.MoveTowards(transform.position, originalPosition, speed * Time.deltaTime);
-            if (Vector2.Distance(transform.position, originalPosition) < 0.01f)
+            if (isFollowingPlayer)
             {
                 isFollowingPlayer = false;
+                FlipSprite();
+            }
+
+            Move();
+        }
+    }
+
+    private void FollowPlayer()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+    }
+
+    private void Move()
+    {
+        if (isMovingRight)
+        {
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
+            if (transform.position.x >= originalPosition.x + range)
+            {
+                isMovingRight = false;
+                FlipSprite();
             }
         }
         else
         {
-            // enemy is outside playes range - pingpong
-            float horizontalMovement = Mathf.PingPong(Time.time * speed, range * 2) - range;
-            transform.position = new Vector2(originalPosition.x + horizontalMovement, transform.position.y);
+            transform.Translate(Vector2.left * speed * Time.deltaTime);
+            if (transform.position.x <= originalPosition.x - range)
+            {
+                isMovingRight = true;
+                FlipSprite();
+            }
         }
-        FlipSprite();
     }
 
     private void FlipSprite()
     {
-        float moveDirection = Input.GetAxis("Horizontal");
 
-        if (moveDirection < 0)
+        if (isFollowingPlayer)
         {
-            spriteRenderer.flipX = false;
-
+            spriteRenderer.flipX = (player.position.x < transform.position.x);
         }
-        // flip sprite if moving right
-        else if (moveDirection > 0)
+        else
         {
-
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = !isMovingRight;
         }
     }
 }

@@ -9,6 +9,7 @@ public class CharacterAttack : MonoBehaviour
     [SerializeField] private PlayerController player;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private int shotForce;
+    [SerializeField] private float torqueForce;
 
     void Update()
     {
@@ -34,6 +35,8 @@ public class CharacterAttack : MonoBehaviour
             {
                 Vector2 force = new Vector2(playerMovement.direction * shotForce, 0f);
                 projectileRb.AddForce(force, ForceMode2D.Impulse);
+                float torque = playerMovement.direction * torqueForce;
+                projectileRb.AddTorque(torque);
             }
         }
     }
