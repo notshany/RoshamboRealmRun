@@ -11,10 +11,13 @@ public class StartGameScene : MonoBehaviour
     public float timeSoFar = 0;
     public bool isRunning = false;
     public TextMeshProUGUI timerText;
+    public GameManager gameManager;
 
     private void Start()
     {
         isRunning = true;
+        gameManager = FindObjectOfType<GameManager>();
+
     }
 
     private void Update()
@@ -26,7 +29,8 @@ public class StartGameScene : MonoBehaviour
 
             if (timeLeft <= 0)
             {
-                SceneManager.LoadScene(3);
+                gameManager.isGameWon = false;
+                SceneManager.LoadScene("WinScreen");
                 timeLeft = 0;
                 isRunning = false;
             }

@@ -8,13 +8,14 @@ public class EnemyMovement : MonoBehaviour
     public float followRangeX = 8f; 
     public Transform player;
     public PlayerController playerController;
-
+    public SpriteRenderer spriteRenderer;
     private Vector2 originalPosition;
     private bool isFollowingPlayer = false;
 
     private void Start()
     {
         player = FindObjectOfType<PlayerController>().transform;
+        spriteRenderer = GetComponent<SpriteRenderer>();
         originalPosition = transform.position;
     }
 
@@ -42,6 +43,24 @@ public class EnemyMovement : MonoBehaviour
             // enemy is outside playes range - pingpong
             float horizontalMovement = Mathf.PingPong(Time.time * speed, range * 2) - range;
             transform.position = new Vector2(originalPosition.x + horizontalMovement, transform.position.y);
+        }
+        FlipSprite();
+    }
+
+    private void FlipSprite()
+    {
+        float moveDirection = Input.GetAxis("Horizontal");
+
+        if (moveDirection < 0)
+        {
+            spriteRenderer.flipX = false;
+
+        }
+        // flip sprite if moving right
+        else if (moveDirection > 0)
+        {
+
+            spriteRenderer.flipX = true;
         }
     }
 }

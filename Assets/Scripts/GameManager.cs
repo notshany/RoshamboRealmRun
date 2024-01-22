@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager _instance;
     public int selectedCharIndex;
+    public bool isGameWon;
 
     [SerializeField] GameObject playerPrefab;
 
@@ -29,10 +30,14 @@ public class GameManager : MonoBehaviour
 
     public void InstantiatePlayer(int charIndex)
     {
-        Debug.Log("Instantiating Player with CharIndex: " + charIndex);
+        Debug.Log("instantiating player " + charIndex);
         var player = Instantiate(playerPrefab, new Vector3(-6, 2, 0), Quaternion.identity);
         PlayerController playerController = player.GetComponent<PlayerController>();
         playerController.SwitchCharacter(playerController.characters[charIndex]);
+    }
+    private void Start()
+    {
+        isGameWon = false;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -52,6 +57,11 @@ public class GameManager : MonoBehaviour
         ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
         scoreManager.ResetScore();
 
+    }
+
+    public void GoToLeaderboard()
+    {
+        SceneManager.LoadScene("Leaderboard");
     }
 
 

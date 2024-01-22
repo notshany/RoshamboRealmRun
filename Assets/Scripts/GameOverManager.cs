@@ -9,11 +9,22 @@ using TMPro;
 public class GameOverManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI resultText;
     public TMP_InputField nameInputField;
     private ScoreManager scoreManager;
+    private GameManager gameManager;
 
     private void Start()
     {
+        if (gameManager.isGameWon)
+        {
+            resultText.text = "You Won!";
+        }
+        else
+        {
+            resultText.text = "You Lost";
+        }
+
         scoreManager = FindObjectOfType<ScoreManager>();
 
         // Display the final score
@@ -57,7 +68,7 @@ public class GameOverManager : MonoBehaviour
         // Sort the leaderboard entries by score (highest to lowest)
         leaderboard.Sort((a, b) => b.score.CompareTo(a.score));
 
-        Debug.Log("Leaderboard saved successfully."); // Add this line
+        Debug.Log("Leaderboard saved successfully.");
 
         // Save the leaderboard data
         SaveLeaderboard(leaderboard);

@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
-        scoreManager = FindAnyObjectByType<ScoreManager>();
+        scoreManager = FindObjectOfType<ScoreManager>();
         currentHP = maxHP; // starts the hp as the max hp at the start of the game
     }
 
