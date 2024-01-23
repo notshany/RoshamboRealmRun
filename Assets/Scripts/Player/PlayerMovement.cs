@@ -35,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
         Move();
         Jump();
         GroundCheck();
+
+        rightAnimator.SetBool("isJumping", !isTouchingGround);
+        leftAnimator.SetBool("isJumping", !isTouchingGround);
+
     }
     void Move()
     {
@@ -79,6 +83,10 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpCounter = 0;
         }
+
+        rightAnimator.SetBool("isJumping", false);
+        leftAnimator.SetBool("isJumping", false);
+
     }
     void Jump()
     {
