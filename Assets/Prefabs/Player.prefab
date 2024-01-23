@@ -47,7 +47,7 @@ MonoBehaviour:
   characterType: Paper
   maxHP: 100
   currentHP: 100
-  damage: 10
+  damage: 20
   attackType: PaperAttack
   characterSprite: {fileID: 1060048640, guid: 295e6bff44c00f440b44d1ceff1acdf6, type: 3}
   isRespawning: 0
@@ -447,7 +447,7 @@ MonoBehaviour:
   characterType: Rock
   maxHP: 100
   currentHP: 100
-  damage: 30
+  damage: 20
   attackType: RockAttack
   characterSprite: {fileID: 213949311, guid: 295e6bff44c00f440b44d1ceff1acdf6, type: 3}
   isRespawning: 0
